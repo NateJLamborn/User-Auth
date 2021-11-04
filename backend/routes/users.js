@@ -121,4 +121,13 @@ router.delete("/delete-user/:id", function (req, res, next) {
 );
 });
 
+router.get('/user-list', function(req, res, next){
+  models.users
+  .findAll({})
+  .then(usersFound => {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(usersFound));
+  });
+})
+
 module.exports = router;
