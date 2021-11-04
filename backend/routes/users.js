@@ -98,7 +98,7 @@ router.get('/logout', function (req, res, next) {
 
 router.put('/edit-user/:id', function(req, res, next){
   let userId = parseInt(req.params.id);
-  models.notes
+  models.users
     .update(req.body, { where: { UserId: userId } })
     .then(result => res.send("User edited"))
     .catch(err => {
